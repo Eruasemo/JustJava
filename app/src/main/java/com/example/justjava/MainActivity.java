@@ -10,6 +10,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.text.NumberFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -19,11 +21,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void submitOrder(View view){
-        display(1);
+        display(2);
+        displayPrice(10);
     }
 
-    public void display(int number){
+    private void display(int number){
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
         quantityTextView.setText(""+number);
     }
+
+    private void displayPrice(int number){
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        priceTextView.setText(NumberFormat.getCurrencyInstance().format(number));
+    }
+
 }
